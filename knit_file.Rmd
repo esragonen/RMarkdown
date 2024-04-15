@@ -86,4 +86,5 @@ gapminder %>%
   filter(country == "Turkey") %>% 
   ggplot(aes(x=year, y=lifeExp))+
   geom_point()
+
 ```

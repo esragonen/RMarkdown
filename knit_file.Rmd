@@ -1,0 +1,89 @@
+---
+title: "R Markdown"
+author: "esra"
+date: "2024-04-15"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE}
+library(ggplot2)
+```
+
+## R Markdown
+
+This is an `R` `Markdown` document. Markdown is a simple formatting syntax for authoring HTML, **PDF**, and **MS** Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Include Plots
+
+you can embed plots, for example:
+
+```{r}
+plot(pressure)
+```
+
+## List
+
+-   bullet list 1
+
+-   bullet list 2
+
+-   bullet list 3
+
+## Format
+
+-   superscript : 2^nd^
+
+-   subscript :CO~2~
+
+-   strike-through: ~~mistake~~
+
+## Code Chunk Options
+
+```{r, eval=FALSE}
+gap <- read.csv("gapminder.csv")
+```
+
+```{r, warning=FALSE, include=TRUE}
+sqrt(-1)
+```
+
+## Inline Codes
+
+I want to add some inline codes such as `r sqrt(25)`.
+
+## Tables
+
+| variable 1 | variable 2 | variable 3 |
+|------------|------------|------------|
+|            |            |            |
+|            |            |            |
+|            |            |            |
+
+```{r, mytable1}
+library(gapminder)
+top_gap <- head(gapminder)
+knitr::kable(top_gap)
+knitr::kable(top_gap, caption = "first row of the dataset,
+             gapminder")
+
+```
+
+```{r}
+library(tidyverse)
+gapminder %>% 
+  filter(country == "Turkey") %>% 
+  ggplot(aes(x=year, y=lifeExp))+
+  geom_point()
+```
